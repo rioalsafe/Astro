@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
-    [SerializeField]
-    private static PlayerHP playerHP;
+    public PlayerHP playerHP;
+    public PlayerGold playerGold;
 
     void Awake()
     {
         
     }
 
-    public void AttackEnemy()
+    public void AttackEnemy(int Damage)
     {
-        playerHP.TakeDamage(1);
+        playerHP.GetComponent<PlayerHP>().TakeDamage(Damage);
+    }
+
+    public void KillEnemy(int Gold)
+    {
+        playerGold.GetComponent<PlayerGold>().TakeGold(Gold);
     }
 }
