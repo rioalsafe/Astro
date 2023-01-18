@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerStat : MonoBehaviour
+public class PlayerGold : MonoBehaviour
 {
    [SerializeField]
     private float startgold = 20;     

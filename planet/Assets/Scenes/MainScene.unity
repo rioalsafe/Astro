@@ -767,9 +767,8 @@ GameObject:
   - component: {fileID: 762790681}
   - component: {fileID: 762790686}
   - component: {fileID: 762790687}
-  - component: {fileID: 762790689}
   - component: {fileID: 762790688}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: PlayerBody
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -954,18 +953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startgold: 20
---- !u!114 &762790689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762790680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c693a31a683eb468ed4a96ad837133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   maxHP: 20
 --- !u!1 &991357789
 GameObject:
@@ -977,7 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 991357790}
   - component: {fileID: 991357791}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: PlayerInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,8 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217fb614028a15d49bfb1bb432360a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHP: {fileID: 762790689}
-  playerGold: {fileID: 762790688}
+  playerStat: {fileID: 762790688}
 --- !u!4 &1321096146
 Transform:
   m_ObjectHideFlags: 0
@@ -1421,7 +1407,7 @@ GameObject:
   - component: {fileID: 1470064973}
   - component: {fileID: 1470064972}
   - component: {fileID: 1470064974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,7 +1605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678457588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.12, y: -4.92, z: -0.00025963923}
+  m_LocalPosition: {x: -0.53, y: 4.66, z: -0.00025963923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

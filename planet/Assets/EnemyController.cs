@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public PlayerHP playerHP;
-    public PlayerGold playerGold;
+    public PlayerStat playerStat;
 
     void Awake()
     {
@@ -14,11 +13,11 @@ public class EnemyController : MonoBehaviour
 
     public void AttackEnemy(int Damage)
     {
-        playerHP.GetComponent<PlayerHP>().TakeDamage(Damage);
+        playerStat.GetComponent<PlayerStat>().TakeDamage(Damage);
     }
 
     public void KillEnemy(int Gold)
     {
-        playerGold.GetComponent<PlayerGold>().TakeGold(Gold);
+        playerStat.GetComponent<PlayerStat>().TakeGold(Gold);
     }
 }
