@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Planet
   - Enermy
+  - Turret
   layers:
   - Default
   - TransparentFX

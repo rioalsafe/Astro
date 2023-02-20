@@ -24,7 +24,7 @@ public class GravityPoint : MonoBehaviour
         Vector3 dir = (transform.position - obj.transform.position) * gravityScale;
         
 
-        if(obj.CompareTag("Player"))
+        if(obj.CompareTag("Player") || obj.CompareTag("Turret"))
         {
             //중력이 작용하는 방향설정
             obj.GetComponent<Rigidbody2D>().AddForce(dir);
