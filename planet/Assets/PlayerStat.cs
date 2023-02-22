@@ -2,31 +2,22 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerStat: MonoBehaviour
+public class PlayerStat : MonoBehaviour
 {
-   [SerializeField]
-    private float startgold = 20;     
-    private float currentGold;      
-
-    public float Startgold => startgold;
-    public float CurrentGold => currentGold;
+    [SerializeField]
+    private int currentGold = 100;
 
     [SerializeField]
-    private float maxHP = 20;     // 최대 체력
-    private float currentHP;      // 현재 체력
-
-    public float MaxHP => maxHP;
-    public float CurrentHP => currentHP;
+    private float currentHP = 20;     // 최대 체력
 
     void Update()
     {
-        
+
     }
 
     private void Awake()
     {
-        currentGold = startgold;
-        currentHP = maxHP;
+        
     }
 
     public void TakeGold(int gold)
@@ -35,7 +26,7 @@ public class PlayerStat: MonoBehaviour
         currentGold += gold;
         Debug.Log("gold : " + currentGold);
 
-   
+
         if (currentGold <= 0)
         {
 

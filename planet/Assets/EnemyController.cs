@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
-        
+
     }
 
     public void AttackEnemy(int Damage)
