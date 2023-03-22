@@ -5,10 +5,10 @@ using System.Collections;
 public class PlayerStat : MonoBehaviour
 {
     [SerializeField]
-    private int currentGold = 100;
+    public int currentGold = 100;
 
     [SerializeField]
-    private float currentHP = 20;     // 최대 체력
+    public int currentHP = 20;     // 최대 체력
 
     void Update()
     {
