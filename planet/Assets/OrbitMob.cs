@@ -20,6 +20,7 @@ public class OrbitMob : MonoBehaviour
 
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Colliderd " + collision.name);
