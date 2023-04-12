@@ -76,17 +76,20 @@ public class AIDetector : MonoBehaviour
     private void Update()
     {
         if (Target != null)
-            TargetVisible = CheckTargetVisible();
+        TargetVisible = CheckTargetVisible();
+
     }
 
     //레이케스트로 타겟 식별 함수
     private bool CheckTargetVisible()
     {
+
         var result = Physics2D.Raycast(transform.position, Target.position - transform.position, viewRadius, visibilityLayer);
         if (result.collider != null)
         {
             return (playerLayerMask & (1 << result.collider.gameObject.layer)) != 0;
         }
+        Debug.Log("No object hit"); // 디버그 로그 출력
         return false;
     }
 
@@ -94,10 +97,15 @@ public class AIDetector : MonoBehaviour
     private void DetectTarget()
     {
         if (Target == null)
-
+        {
             CheckIfPlayerInRange();
+
+        }
         else if (Target != null)
+        {
             DetectIfOutOfRange();
+            Debug.Log("나감");
+        }
     }
 
     //타겟이 시야에서 살아졌는지 체크
@@ -106,6 +114,7 @@ public class AIDetector : MonoBehaviour
         if (Target == null || Target.gameObject.activeSelf == false || Vector2.Distance(transform.position, Target.position) > viewRadius + 1)
         {
             Target = null;
+            Debug.Log("탈출함"); // 디버그 메시지 출력
         }
     }
 
@@ -127,11 +136,8 @@ public class AIDetector : MonoBehaviour
                 Direction = targetPos - (Vector2)transform.position + new Vector2(0f, -0.3f);
 
                 var bone = skeletonAnimation.Skeleton.FindBone(boneName);
-                if (bone != null)
-                {
                     bone.X = Direction.x;
                     bone.Y = Direction.y - 5;
-                }
 
             }
             if (Time.time > nextTimeToFire)
@@ -150,7 +156,6 @@ public class AIDetector : MonoBehaviour
 
         BulletIns.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
     }
-
 
     IEnumerator DetectionCoroutine()
     {
