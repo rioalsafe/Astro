@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Spine.Unity;
 
 
 //플레이어 이동 클래스
@@ -13,10 +13,18 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = true; //행성표면 착지 유무
     private float horizontal;
 
+    public SkeletonAnimation skeletonAnimation;
+    private MeshRenderer meshRenderer;
+
+    private bool wasInputLeft = false;
+    private bool wasInputRight = false;
+    private bool wasInputJump = false;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -26,15 +34,42 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded && Input.GetButtonDown("Jump")) 
         {//행성표면이고 점프키(spacebar)를 눌렀을때 동작
             body.AddForce(transform.up * jumpPower, ForceMode2D.Impulse);
+            skeletonAnimation.AnimationState.SetAnimation(0, "Jump_Loop", true);
         }
     }
 
     // 기존 Update()함수보다 좋다고해서 사용
     void FixedUpdate()
     {
-        //수평이동
+
+        // 수평 이동
         horizontal = Input.GetAxisRaw("Horizontal");
         body.AddForce(transform.right * horizontal * moveSpeed);
+        if(horizontal == 0)
+        {
+            skeletonAnimation.AnimationState.SetAnimation(0, "Run_Loop", true);
+        }
+    
+
+        // 좌우 반전
+        Vector3 theScale = transform.localScale;
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !wasInputLeft)
+        {
+            wasInputLeft = true;
+            wasInputRight = false;
+            theScale.x = Mathf.Abs(theScale.x) * -1;
+            transform.localScale = theScale;
+            skeletonAnimation.AnimationState.SetAnimation(0, "walk_Loop", true);
+        }
+        else if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && !wasInputRight)
+        {
+            wasInputRight = true;
+            wasInputLeft = false;
+            theScale.x = Mathf.Abs(theScale.x);
+            transform.localScale = theScale;
+            skeletonAnimation.AnimationState.SetAnimation(0, "walk_Loop", true);
+        }
+
     }
 
     //오브젝트 충돌감지
