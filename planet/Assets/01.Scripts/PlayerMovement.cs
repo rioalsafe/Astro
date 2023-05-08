@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool wasInputLeft = false;
     private bool wasInputRight = false;
     private bool wasInputJump = false;
+    private bool wasIdle = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +46,7 @@ public class PlayerMovement : MonoBehaviour
         // 수평 이동
         horizontal = Input.GetAxisRaw("Horizontal");
         body.AddForce(transform.right * horizontal * moveSpeed);
-        if(horizontal == 0)
-        {
-            skeletonAnimation.AnimationState.SetAnimation(0, "Run_Loop", true);
-        }
-    
+       
 
         // 좌우 반전
         Vector3 theScale = transform.localScale;
@@ -57,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         {
             wasInputLeft = true;
             wasInputRight = false;
+            wasIdle = false;
             theScale.x = Mathf.Abs(theScale.x) * -1;
             transform.localScale = theScale;
             skeletonAnimation.AnimationState.SetAnimation(0, "walk_Loop", true);
@@ -65,9 +63,16 @@ public class PlayerMovement : MonoBehaviour
         {
             wasInputRight = true;
             wasInputLeft = false;
+            wasIdle = false;
             theScale.x = Mathf.Abs(theScale.x);
             transform.localScale = theScale;
             skeletonAnimation.AnimationState.SetAnimation(0, "walk_Loop", true);
+        }else if ((Input.GetKey(KeyCode.S)) && !wasIdle)
+        {
+            wasInputRight = false;
+            wasInputLeft = false;
+            wasIdle = true;
+            skeletonAnimation.AnimationState.SetAnimation(0, "Idle_Loop", true);
         }
 
     }
