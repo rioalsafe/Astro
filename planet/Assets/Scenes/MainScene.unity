@@ -1767,10 +1767,10 @@ MonoBehaviour:
   target: {fileID: 0}
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 2
+    m_Bits: 0
   visibilityLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2
   skeletonAnimation: {fileID: 1435244483}
   thisObject: {fileID: 1435244482}
   boneName: target

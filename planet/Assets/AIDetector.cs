@@ -111,6 +111,8 @@ public class AIDetector : MonoBehaviour
     //타겟이 시야에서 살아졌는지 체크
     private void DetectIfOutOfRange()
     {
+        CheckIfPlayerInRange();
+
         if (Target == null || Target.gameObject.activeSelf == false || Vector2.Distance(transform.position, Target.position) > viewRadius + 1)
         {
             Target = null;
