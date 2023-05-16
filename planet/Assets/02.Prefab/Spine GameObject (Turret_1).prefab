@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5966639453782115469
+--- !u!1 &4634916512390570025
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5966639453782115465}
-  - component: {fileID: 5966639453782115466}
-  - component: {fileID: 5966639453782115467}
-  - component: {fileID: 5966639453782115468}
-  - component: {fileID: 5966639453782115464}
+  - component: {fileID: 4634916512390570030}
+  - component: {fileID: 4634916512390570029}
+  - component: {fileID: 4634916512390570028}
+  - component: {fileID: 4634916512390570027}
+  - component: {fileID: 4634916512390570026}
   m_Layer: 0
   m_Name: Spine GameObject (Turret_1)
   m_TagString: Untagged
@@ -20,13 +20,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5966639453782115465
+--- !u!4 &4634916512390570030
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966639453782115469}
+  m_GameObject: {fileID: 4634916512390570025}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.64, y: 5.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,21 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5966639453782115466
+--- !u!33 &4634916512390570029
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966639453782115469}
+  m_GameObject: {fileID: 4634916512390570025}
   m_Mesh: {fileID: 0}
---- !u!23 &5966639453782115467
+--- !u!23 &4634916512390570028
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966639453782115469}
+  m_GameObject: {fileID: 4634916512390570025}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5966639453782115468
+--- !u!114 &4634916512390570027
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966639453782115469}
+  m_GameObject: {fileID: 4634916512390570025}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
@@ -125,13 +125,13 @@ MonoBehaviour:
   _animationName: 
   loop: 0
   timeScale: 1
---- !u!114 &5966639453782115464
+--- !u!114 &4634916512390570026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5966639453782115469}
+  m_GameObject: {fileID: 4634916512390570025}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d8c1a867e413f24986d515ecee9e369, type: 3}
@@ -146,12 +146,12 @@ MonoBehaviour:
   visibilityLayer:
     serializedVersion: 2
     m_Bits: 128
-  skeletonAnimation: {fileID: 5966639453782115468}
-  thisObject: {fileID: 5966639453782115469}
+  skeletonAnimation: {fileID: 4634916512390570027}
+  thisObject: {fileID: 4634916512390570025}
   boneName: target
   enemyTag: Player
   Direction: {x: 0, y: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 2335200077214125443, guid: 83be4316ed9141e44a738909c5c11f8f, type: 3}
   FireRate: 1
   Force: 100
   <TargetVisible>k__BackingField: 0
