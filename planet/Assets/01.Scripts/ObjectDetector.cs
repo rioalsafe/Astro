@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -24,14 +25,18 @@ public class ObjectDetector : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
-            Debug.Log("클릭한좌표" + worldPoint);
-            Debug.Log(hit.collider);
+                Debug.Log("클릭한좌표" + worldPoint);
+                Debug.Log(hit.collider);
 
-            //포탑생성
-            Instantiate(turret, worldPoint, Quaternion.identity);
+                //포탑생성
+                Instantiate(turret, worldPoint, Quaternion.identity);
+
+            }
         }
     }
 }

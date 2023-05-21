@@ -32,7 +32,8 @@ public class AIDetector : MonoBehaviour
     [SerializeField]
     private LayerMask visibilityLayer;
 
-    //스켈레톤 오브젝트
+    //스켈레톤 오브젝트\
+    private Rigidbody2D body;
     public SkeletonAnimation skeletonAnimation;
     public GameObject thisObject;
     public string boneName;
@@ -56,6 +57,8 @@ public class AIDetector : MonoBehaviour
     [field: SerializeField]
     public bool TargetVisible { get; private set; }
 
+    private bool isGrounded = false;
+
     //타겟 식별 람다식
     public Transform Target
     {
@@ -73,11 +76,15 @@ public class AIDetector : MonoBehaviour
         StartCoroutine(DetectionCoroutine());
         skeletonAnimation = GetComponent<SkeletonAnimation>();
         skeletonAnimation.AnimationState.SetAnimation(0, "Idle", true);
+        body = GetComponent<Rigidbody2D>();
     }
 
     //매 프레임마다 타겟식별 체크
     private void Update()
     {
+        if (isGrounded)
+        {
+        }
         if (Target != null)
         TargetVisible = CheckTargetVisible();
 
@@ -143,7 +150,7 @@ public class AIDetector : MonoBehaviour
                 if (bone != null)
                 {
                     bone.X = Direction.x;
-                    bone.Y = Direction.y - 5;
+                    bone.Y = Direction.y;
                 }
 
             }
@@ -169,6 +176,30 @@ public class AIDetector : MonoBehaviour
         DetectTarget();
         StartCoroutine(DetectionCoroutine());
     }
+
+    void OnTriggerStay2D(Collider2D obj)
+    {
+        //충돌한 오브젝트가 Planet 일시
+        if (obj.CompareTag("Planet"))
+        {
+            //(중력이 작용하고있는 범위 - 행성과 플레이어간 거리)
+            float distance = Mathf.Abs(obj.GetComponent<GravityPoint>().planetRadius - Vector2.Distance(transform.position, obj.transform.position));
+            // Debug.Log(distance);
+
+            //행성표면 착지 판별
+            if (distance < 1.7f)
+            {
+                body.freezeRotation = true;
+            }
+            else
+                isGrounded = false;
+
+            // Debug.Log("행성간 거리" + distance);
+            // Debug.Log("현재 행성 거리" + landplanetradius);
+
+        }
+    }
+
 
     //사격범위 그리기
     private void OnDrawGizmos()
