@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: f834d5cd806ec4645915ac315edbdc60
+=======
+guid: abb1b18e0f7e3ef40968fb1a0637ea5c
+>>>>>>> Stashed changes
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []

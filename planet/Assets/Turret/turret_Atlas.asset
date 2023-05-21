@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: turret_Atlas
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   atlasFile: {fileID: 4900000, guid: 3ca29d9ecbb91574ba34c2353388bedf, type: 3}
   materials:
   - {fileID: 2100000, guid: ece879358a56fbc4bb9eb3204208213c, type: 2}
+=======
+  atlasFile: {fileID: 4900000, guid: 5a076e537738f7c449b10dc3acec3a00, type: 3}
+  materials:
+  - {fileID: 2100000, guid: 1ccf5628aecffeb4c8ed28046e9a1d02, type: 2}
+>>>>>>> Stashed changes

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: abbda12fddbb0b048a842a3835470d30
+=======
+guid: 975b06567b29e864f98e12cd47ef2b75
+>>>>>>> Stashed changes
 timeCreated: 1480325971
 licenseType: Free
 ShaderImporter:
